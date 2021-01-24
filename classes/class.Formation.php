@@ -8,7 +8,7 @@ class Personne implements Jsonserializable{
     private $ville =null;
     private $departement =null;
 
-    private $laPersonne = null;
+    private $laPersonne = array();
 
     //Constructor
 

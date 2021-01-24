@@ -7,7 +7,7 @@ class Poste implements Jsonserializable{
     private $periode_deb =null;
     private $periode_fin =null;
 
-    private $laPersonne = null;
+    private $laPersonne = array();
     
     public function __construct($id =0, $nom =null, $periode_deb =null, $periode_fin =null){
         $this->id                   =$id;
