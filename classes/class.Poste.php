@@ -2,18 +2,18 @@
 require_once('class.Personne.php');
 
 class Poste implements Jsonserializable{
-    private $id =0;
-    private $nom =null;
-    private $periode_deb =null;
-    private $periode_fin =null;
+    private $id             = 0;
+    private $nom            = null;
+    private $periode_deb    = null;
+    private $periode_fin    = null;
 
-    private $laPersonne = array();
+    private $laPersonne     = array();
     
-    public function __construct($id =0, $nom =null, $periode_deb =null, $periode_fin =null){
-        $this->id                   =$id;
-        $this->nom                  =$nom;
-        $this->periode_deb          =$periode_deb;
-        $this->periode_fin          =$periode_fin;
+    public function __construct($id, $nom, $periode_deb, $periode_fin){
+        $this->id                   = $id;
+        $this->nom                  = $nom;
+        $this->periode_deb          = $periode_deb;
+        $this->periode_fin          = $periode_fin;
     }
 
     //Getter
@@ -32,7 +32,7 @@ class Poste implements Jsonserializable{
     public function setPeriode_deb($periode_deb)        {$this->periode_deb = $periode_deb;} 
     public function setPeriode_fin($periode_fin)        {$this->periode_fin = $periode_fin;} 
 
-    public function setLaPersonee($laPersonne)          {$this->LaPersonee = $laPersonne;}
+    public function setLaPersonne($laPersonne)          {$this->laPersonne = $laPersonne;}
 
     public function jsonSerialize(){return get_object_vars($this);}
 }

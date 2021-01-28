@@ -2,19 +2,19 @@
 
 require_once('class.Personne.php');
 
-class Hobbies implements Jsonserializable{
-    private $id =0;
-    private $nom=null;
-    private $info =null;
+class Hobbie implements Jsonserializable{
+    private $id             = 0;
+    private $nom            = null;
+    private $info           = null;
 
-    private $laPersonne=array();
+    private $laPersonne     = array();
 
     //Constructo
 
-    public function __construct($id =0,$nom=null, $info =null){
-        $this->id               =$id;
-        $this->nom              =$nom;
-        $this->info             =$info;
+    public function __construct($id, $nom, $info){
+        $this->id           = $id;
+        $this->nom          = $nom;
+        $this->info         = $info;
     }
 
     //Getter

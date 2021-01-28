@@ -1,23 +1,23 @@
 <?php
 require_once('class.Personne.php');
 
-class Personne implements Jsonserializable{
-    private $id =0;
-    private $nom =null;
-    private $etablissement = null;
-    private $ville =null;
-    private $departement =null;
+class Formation implements Jsonserializable{
+    private $id             = 0;
+    private $nom            = null;
+    private $etablissement  = null;
+    private $ville          = null;
+    private $departement    = null;
 
-    private $laPersonne = array();
+    private $laPersonne     = array();
 
     //Constructor
 
-    public function __construct($id =0, $nom =null, $etablissement = null, $ville =null, $departement =null){
-        $this->id                   =$id;
-        $this->nom                  =$nom;
-        $this->etablissement        =$etablissement;
-        $this->ville                =$ville;
-        $this->departement          =$departement;
+    public function __construct($id, $nom, $etablissement, $ville, $departement){
+        $this->id                   = $id;
+        $this->nom                  = $nom;
+        $this->etablissement        = $etablissement;
+        $this->ville                = $ville;
+        $this->departement          = $departement;
     }
 
     //Getter
