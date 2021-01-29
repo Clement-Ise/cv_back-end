@@ -1,7 +1,7 @@
 <?php
 
-    require_once '../cnx.php';
-    require_once '../classes/class.Hobbie.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.Hobbie.php';
 
     $sql = "SELECT * FROM hobbie";
                 

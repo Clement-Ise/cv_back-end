@@ -1,7 +1,7 @@
 <?php
 
-    require_once '../cnx.php';
-    require_once '../classes/class.ExperiencePro.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.ExperiencePro.php';
 
     $sql = "SELECT * FROM experience_pro";
     $requete = $pdo->prepare($sql);

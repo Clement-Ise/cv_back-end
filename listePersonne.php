@@ -1,6 +1,6 @@
 <?php
-    require_once '../cnx.php';
-    require_once '../classes/class.Personne.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.Personne.php';
 
     //Liste des personne avec tout leurs attributs
     $sql = "SELECT * 

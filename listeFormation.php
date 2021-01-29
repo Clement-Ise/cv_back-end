@@ -1,7 +1,7 @@
 <?php
 
-    require_once '../cnx.php';
-    require_once '../classes/class.Formation.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.Formation.php';
 
 
     $sql = "SELECT * FROM formation";

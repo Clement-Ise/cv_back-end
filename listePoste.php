@@ -1,7 +1,7 @@
 <?php
 
-    require_once '../cnx.php';
-    require_once '../classes/class.Poste.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.Poste.php';
 
     $sql = "SELECT*FROM poste";
 

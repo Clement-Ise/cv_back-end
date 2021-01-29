@@ -1,7 +1,7 @@
 <?php
 
-    require_once '../cnx.php';
-    require_once '../classes/class.Outil.php';
+    require_once 'cnx.php';
+    require_once 'classes/class.Outil.php';
 
     $sql ="SELECT * FROM outil";
     
