@@ -15,7 +15,7 @@
                 $donnees['ID_POSTE'],
                 $donnees['nom'],
                 $donnees['periode_deb'],
-                $donnees['periode_fin']
+                $donnees['periode_deb']
             );
             $listepost[]=$post;
         }

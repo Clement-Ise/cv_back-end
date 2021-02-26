@@ -1,25 +1,25 @@
 <?php
-require_once('class.ExperiencePro.php');
-require_once('class.Reseau.php');
-require_once('class.Hobbie.php');
-require_once('class.Poste.php');
-require_once('class.Outil.php');
-require_once('class.Formation.php');
+require_once ('class.ExperiencePro.php');
+require_once ('class.Reseau.php');
+require_once ('class.Hobbie.php');
+require_once ('class.Poste.php');
+require_once ('class.Outil.php');
+require_once ('class.Formation.php');
 
 class Personne implements JsonSerializable 
 {
     private $id                     = 0;
     private $nom                    = null;
     private $prenom                 = null;
-    private $date_naissance         = null;
     private $departement            = null;
     private $cp                     = 0;
     private $ville                  = null;
     private $adresse                = null;
     private $mail                   = null;
-    private $telephone              = 0;
-    private $permis                 = 0;
-    private $voiture                = 0;
+    private $telephone              = null;
+    private $permis                 = null;
+    private $voiture                = null;
+    private $qualification          = null;
 
     private $lesExperiencesPros     = array();
     private $lesReseaux             = array();
@@ -27,14 +27,14 @@ class Personne implements JsonSerializable
     private $lesPostes              = array();
     private $lesOutils              = array();
     private $lesFormations          = array();
+   
 
     // Constructor
-    public function __construct($id, $nom, $prenom, $date_naissance, $departement, $cp, $ville, $adresse, $mail, $telephone, $permis, $voiture)
+    public function __construct($id, $nom, $prenom, $departement, $cp, $ville, $adresse, $mail, $telephone, $permis, $voiture, $qualification)
     {
         $this->id                 = $id;
         $this->nom                = $nom;
         $this->prenom             = $prenom;
-        $this->date_naissance     = $date_naissance;
         $this->departement        = $departement;
         $this->cp                 = $cp;
         $this->ville              = $ville;
@@ -43,13 +43,12 @@ class Personne implements JsonSerializable
         $this->telephone          = $telephone;
         $this->permis             = $permis;
         $this->voiture            = $voiture;
-    }   
-
+        $this->qualification      = $qualification;
+    }
     //Getter
     public function getId()                     {return $this->id;}
     public function getNom()                    {return $this->nom;}
     public function getPrenom()                 {return $this->prenom;}
-    public function getDateNaissance()         {return $this->date_naissance;}
     public function getDepartement()            {return $this->departement;}
     public function getCp()                     {return $this->cp;}
     public function getVille()                  {return $this->ville;}
@@ -58,6 +57,7 @@ class Personne implements JsonSerializable
     public function getTelephone()              {return $this->telephone;}
     public function getPermis()                 {return $this->permis;}
     public function getVoiture()                {return $this->voiture;} 
+    public function getQualification()          {return $this->qualification;}
 
     public function getLesExperiencesPros()     {return $this->lesExperiencesPros;}
     public function getLesReseaux()             {return $this->lesReseaux;}
@@ -71,7 +71,6 @@ class Personne implements JsonSerializable
     public function setId($id)                                          {$this->id = $id;}
     public function setNom($nom)                                        {$this->nom = $nom;}
     public function setPrenom($prenom)                                  {$this->prenom = $prenom;}
-    public function setDateNaissance($date_naissance)                  {$this->date_naissance = $date_naissance;}
     public function setDepartement($departement)                        {$this->departement = $departement;}
     public function setCp($cp)                                          {$this->cp = $cp;}
     public function sgetVille($ville)                                   {$this->ville = $ville;}
@@ -80,6 +79,7 @@ class Personne implements JsonSerializable
     public function setTelephone($telephone)                            {$this->telephone = $telephone;}
     public function setPermis($permis)                                  {$this->permis = $permis;}
     public function setVoiture($voiture)                                {$this->voiture = $voiture;} 
+    public function setQualification($qualification)                    {$this->qualification = $qualification;}
 
     public function setLesExperiencesPros($lesExperiencesPros)          {$this->lesExperiencesPros = $lesExperiencesPros;}
     public function setLesReseaux($lesReseaux)                          {$this->lesReseaux = $lesReseaux;}

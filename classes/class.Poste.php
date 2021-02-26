@@ -1,5 +1,5 @@
 <?php
-require_once('class.Personne.php');
+require_once ('class.Personne.php');
 
 class Poste implements Jsonserializable{
     private $id             = 0;

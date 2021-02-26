@@ -13,7 +13,7 @@
         while($donnees = $requete->fetch()){
             $Compe = new Outil(
                 $donnees['ID_OUTIL'],
-                $donnees['type'],
+                $donnees['genre'],
                 $donnees['nom'],
             );
             $listeCompe[]=$Compe;  

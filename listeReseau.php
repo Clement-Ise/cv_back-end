@@ -1,7 +1,7 @@
 <?php
 
-    require_once 'cnx.php';
-    require_once 'classes/class.Reseau.php';
+    require_once '../../cnx.php';
+    require_once '../../classes/class.Reseau.php';
 
     $sql = "SELECT * FROM reseau";
 
@@ -15,7 +15,6 @@
                 $donnees['ID_RESEAU'],
                 $donnees['nom'],
                 $donnees['lien'],
-                $donnees['logo']
             );
             $listerese[]=$rese;
         }

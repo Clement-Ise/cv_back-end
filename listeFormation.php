@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
 
     require_once 'cnx.php';
     require_once 'classes/class.Formation.php';
@@ -18,11 +19,11 @@
                 $donnees['etablissement'],
                 $donnees['ville'],
                 $donnees['departement'],
-                $donnees['annee']
+                $donnees['annee'],
             );
-            $listeForma = $Forma;
+            $listeForma[] = $Forma;
         }
     }
-// Encodage et affichage du flux Json
-echo json_encode($listeForma);
+    // Encodage et affichage du flux Json
+    echo json_encode($listeForma);
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('class.Personne.php');
+require_once ('class.Personne.php');
 
 class Hobbie implements Jsonserializable{
     private $id             = 0;

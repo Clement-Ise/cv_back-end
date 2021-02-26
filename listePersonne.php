@@ -1,4 +1,6 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+
     require_once 'cnx.php';
     require_once 'classes/class.Personne.php';
 
@@ -20,7 +22,6 @@
                     $donnees['ID_PERSONNE'],
                     $donnees['nom'],
                     $donnees['prenom'],
-                    $donnees['date_naissance'],
                     $donnees['departement'],
                     $donnees['cp'],
                     $donnees['ville'],
@@ -28,7 +29,9 @@
                     $donnees['mail'],
                     $donnees['telephone'],
                     $donnees['permis'],
-                    $donnees['voiture']
+                    $donnees['voiture'],
+                    $donnees['qualification']
+                    
                 );
                 // recherche de ces experience_pro lié à la personne
 
@@ -37,7 +40,7 @@
                 AND avoir.ID_EXPERIENCE_PRO = experience_pro.ID_EXPERIENCE_PRO";
 
                 $requete2 = $pdo->prepare($sql2);
-                
+ 
                 $listeexpe = array();
 
                 if($requete2->execute()){
@@ -51,7 +54,6 @@
                             $donnees2['periode_fin'],
                             $donnees2['departement'],
                             $donnees2['cp'],
-                            $donnees2['logo']
                         );
                         $listeexpe[] =$expe;;
                     }
@@ -59,7 +61,6 @@
                 $moi->setLesExperiencesPros($listeexpe);
 //******************************************************************************/
                 // recherche de ces reseau lié à la personne
-
                 $sql3 = "SELECT * FROM personne, etre,reseau 
                 WHERE personne.ID_PERSONNE = etre.ID_PERSONNE 
                 AND etre.ID_RESEAU = reseau.ID_RESEAU";
@@ -74,7 +75,6 @@
                             $donnees3['ID_RESEAU'],
                             $donnees3['nom'],
                             $donnees3['lien'],
-                            $donnees3['logo']
                         );
                         $listerese[]=$rese;
                     }
@@ -101,7 +101,7 @@
                        $listehobb[] = $hobb; 
                     }
                 }
-                $moi->setLesReseaux($listehobb);
+                $moi->setLesHobbies($listehobb);
 
                 //rechercher des ces poste lié à la personne
 
@@ -130,7 +130,7 @@
 
                 $sql6 ="SELECT * FROM personne, utiliser,outil
                 WHERE personne.ID_PERSONNE = utiliser.ID_PERSONNE
-                AND utiliser.ID_OUTIL = outil.ID_OUTIL";
+                AND utiliser.ID_OUTIL = outil.ID_OUTIL ORDER BY genre";
                 
                 $requete6 = $pdo->prepare($sql6);
 
@@ -140,7 +140,7 @@
                     while($donnees6 = $requete6->fetch()){
                         $Compe = new Outil(
                             $donnees6['ID_OUTIL'],
-                            $donnees6['type'],
+                            $donnees6['genre'],
                             $donnees6['nom']
                         );
                         $listeCompe[]=$Compe;
@@ -150,7 +150,7 @@
 
                 //rechercher des ces formations lié à la personne 
 
-                $sql7 = "SELECT * FROM personne, suivre,formation
+                $sql7 = "SELECT * FROM personne, suivre, formation
                 WHERE personne.ID_PERSONNE = suivre.ID_PERSONNE
                 AND suivre.ID_FORMATION = formation.ID_FORMATION";
 
@@ -166,14 +166,14 @@
                             $donnees7['etablissement'],
                             $donnees7['ville'],
                             $donnees7['departement'],
-                            $donnees7['annee']
+                            $donnees7['annee'],
                         );
-                        $listeForma = $Forma;
+                        $listeForma[] = $Forma; 
                     }
                 }
-                $moi->setLesFormations($listeForma);
-                $liste[]=$moi;
+              $moi->setLesFormations($listeForma);
             }
+            $liste[]=$moi;
         }
 
     // Encodage et affichage du flux Json

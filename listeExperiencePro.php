@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
 
     require_once 'cnx.php';
     require_once 'classes/class.ExperiencePro.php';
@@ -15,10 +16,7 @@
                 $donnees["activite"],
                 $donnees["entreprise"],
                 $donnees["periode_deb"],
-                $donnees["periode_fin"],
-                $donnees["departement"],
-                $donnees["cp"],
-                $donnees["logo"]
+                $donnees["periode_fin"]
             );
             $liste[]= $expe;
         }
